@@ -38,5 +38,28 @@ public class ShotController {
 		mv.setViewName("index");
 		return mv;
 	}
+	
+	//page directs ******************************************
+	@GetMapping(path ="addShot.do")
+	public ModelAndView add() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("add");
+		return mv;
+	}
+	
+	@GetMapping(path="updateShot.do")
+	public ModelAndView update() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("update");
+		return mv;
+	}
+	
+	@GetMapping(path="deleteShot.do")
+	public ModelAndView delete() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("delete");
+		return mv;		
+	}
+
 
 }

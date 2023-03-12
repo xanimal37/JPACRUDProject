@@ -11,7 +11,7 @@
 <!-- CSS -->
 <link rel="stylesheet" href="/css/main.css">
 <meta charset="UTF-8">
-<title>Welcome to Goalie Tender</title>
+<title>goalie tender</title>
 </head>
 <body>
 <h1>goalie Tender</h1>
@@ -19,9 +19,9 @@
 <!--   ********************** -->
 <h2>options</h2>
 <ul>
-	<li>Add a Shot</li>
-	<li>Update a Shot</li>
-	<li>Delete a Shot</li>
+	<li><a href="addShot.do">Add a Shot</a></li>
+	<li><a href="updateShot.do">Update a Shot</a></li>
+	<li><a href="deleteShot.do">Delete a Shot</a></li>
 </ul>
 <!-- display list of filterable shots -->
 <h2>shots</h2>

@@ -18,3 +18,4 @@ This project is called "Goalie Tender". It stores data about shots on a goalie i
 # To Do
 - Would be more useful with more tables.
 - Better visual design.
+- could be all on one page, like an app but wanted to work on loading jsp
