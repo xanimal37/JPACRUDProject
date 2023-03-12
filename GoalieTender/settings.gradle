@@ -1,0 +1,3 @@
+rootProject.name = 'GoalieTender'
+
+includeFlat 'JPAGoalie'
