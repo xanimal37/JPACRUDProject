@@ -3,6 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!--  GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+<!-- CSS -->
+<link rel="stylesheet" href="/css/main.css">
 <meta charset="UTF-8">
 <title>goalie tender - update a shot</title>
 </head>
