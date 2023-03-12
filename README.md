@@ -13,7 +13,9 @@ This project is called "Goalie Tender". It stores data about shots on a goalie i
 # Lessons Learned
 - do not change table names and then stop working. While it would be helpful if this project were expanded to not have every table use column 'id', changing this requires updating the entity. I changed a table name and then came back later and couldn't figure out what was 'broken'.
 - calculations are better in the DAO than JSP but still, should I have some kind of 'utility' class that could help with these to keep the DAO focused on database interaction?
-- error messages are very helpful once you know how to format and find them.
+- error messages are very helpful once you know how to format and find them. !!!
+- checkboxes pass value "true" and will be converted to boolean (yay)
+- command objects are great (didn't use them last time)
 
 # To Do
 - Would be more useful with more tables.

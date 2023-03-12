@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
@@ -32,6 +31,7 @@ public class ShotDAOImpl implements ShotDAO {
 	}
 
 	@Override
+	@Transactional
 	public Shot create(Shot shot) {
 		// TODO Auto-generated method stub
 		em.persist(shot);
@@ -40,6 +40,7 @@ public class ShotDAOImpl implements ShotDAO {
 	}
 
 	@Override
+	@Transactional
 	public Shot update(int id, Shot shot) {
 		// TODO Auto-generated method stub
 		//shot needs to be a managed object
@@ -48,6 +49,7 @@ public class ShotDAOImpl implements ShotDAO {
 	}
 
 	@Override
+	@Transactional
 	public boolean delete() {
 		// TODO Auto-generated method stub
 		return false;

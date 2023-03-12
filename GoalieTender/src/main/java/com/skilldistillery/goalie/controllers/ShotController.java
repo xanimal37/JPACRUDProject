@@ -1,10 +1,10 @@
 package com.skilldistillery.goalie.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.goalie.data.ShotDAO;
@@ -37,6 +37,15 @@ public class ShotController {
 		
 		mv.setViewName("index");
 		return mv;
+	}
+	
+	//adding a shot
+	@PostMapping(path = "addShot.do")
+	public ModelAndView newShot(Shot shot) {
+		shotDAO.create(shot);
+		  ModelAndView mv = new ModelAndView();
+		  mv.setViewName("add");
+		  return mv;
 	}
 	
 	//page directs ******************************************
