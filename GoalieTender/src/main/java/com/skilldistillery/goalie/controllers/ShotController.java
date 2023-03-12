@@ -24,8 +24,8 @@ public class ShotController {
 	@GetMapping(path = { "/", "index.do" })
 	public ModelAndView home() {
 		ModelAndView mv = new ModelAndView();
-		//get the data
-		//this goes in the stats bar at the top of every page
+		// get the data
+		// this goes in the stats bar at the top of every page
 		int gamesPlayed = shotDAO.getNumberOfGames();
 		double savePercentage = shotDAO.getSavePercentage();
 		double gaa = shotDAO.getGoalsAgainstAverage();
@@ -33,46 +33,99 @@ public class ShotController {
 		int saves = shotDAO.getNumberOfSaves();
 		int goals = shotDAO.getNumberOfGoals();
 		List<Shot> shots = shotDAO.getAllShots();
-		
-		mv.addObject("totalGamesPlayed",gamesPlayed);
-		mv.addObject("savePercentage",savePercentage);
-		mv.addObject("goalsAgainstAverage",gaa);
-		mv.addObject("totalShotsOnGoal",sog);
-		mv.addObject("totalSaves",saves);
-		mv.addObject("totalGoals",goals);
+
+		mv.addObject("totalGamesPlayed", gamesPlayed);
+		mv.addObject("savePercentage", savePercentage);
+		mv.addObject("goalsAgainstAverage", gaa);
+		mv.addObject("totalShotsOnGoal", sog);
+		mv.addObject("totalSaves", saves);
+		mv.addObject("totalGoals", goals);
 		// add the list object for the table
-		mv.addObject("shots",shots);
-		
+		mv.addObject("shots", shots);
+
 		mv.setViewName("index");
 		return mv;
 	}
-	
-	//adding a shot
+
+	// adding a shot
 	@PostMapping(path = "addShot.do")
 	public ModelAndView newShot(Shot shot) {
 		shotDAO.create(shot);
-		  ModelAndView mv = new ModelAndView();
-		  mv.setViewName("add");
-		  return mv;
-	}
-	
-	//selecting a shot to update or delete
-	@RequestMapping(path = "update.do", params = "shotId",method = RequestMethod.GET)
-	public ModelAndView modify(@RequestParam("shotId") int id){
-		ModelAndView mv = new ModelAndView();
-		Shot shot = shotDAO.getShotById(id);
-		mv.addObject("shot", shot);
-		mv.setViewName("update");
-		return mv;
-	}
-	
-	
-	//page directs ******************************************
-	@GetMapping(path ="addShot.do")
-	public ModelAndView add() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("add");
 		return mv;
 	}
+
+	// selecting a shot to update or delete
+	@RequestMapping(path = "update.do", params = "shotId", method = RequestMethod.GET)
+	public ModelAndView modify(@RequestParam("shotId") int id) {
+		ModelAndView mv = new ModelAndView();
+		Shot shot = shotDAO.getShotById(id);
+		if (shot != null) {
+			mv.addObject(shot);
+		} else {
+			mv.addObject("message", "could not find shot");
+		}
+
+		// get the data
+		// this goes in the stats bar at the top of every page
+		int gamesPlayed = shotDAO.getNumberOfGames();
+		double savePercentage = shotDAO.getSavePercentage();
+		double gaa = shotDAO.getGoalsAgainstAverage();
+		int sog = shotDAO.getNumberOfShots();
+		int saves = shotDAO.getNumberOfSaves();
+		int goals = shotDAO.getNumberOfGoals();
+
+		mv.addObject("totalGamesPlayed", gamesPlayed);
+		mv.addObject("savePercentage", savePercentage);
+		mv.addObject("goalsAgainstAverage", gaa);
+		mv.addObject("totalShotsOnGoal", sog);
+		mv.addObject("totalSaves", saves);
+		mv.addObject("totalGoals", goals);
+
+		mv.setViewName("update");
+		return mv;
+	}
+
+	// delete a shot
+	@RequestMapping(path = "update.do", method = RequestMethod.POST, params = "delete")
+	public ModelAndView deleteShot(@RequestParam("id") int id) {
+		ModelAndView mv = new ModelAndView();
+		boolean wasDeleted = shotDAO.delete(id);
+		String result = null;
+		if (wasDeleted) {
+			result = "shot was deleted";
+		} else {
+			result = "shot was not deleted";
+		}
+		mv.addObject("message", result);
+		return mv;
+	}
 	
+	// update a shot
+
+	// page directs ******************************************
+	@GetMapping(path = "addShot.do")
+	public ModelAndView add() {
+		ModelAndView mv = new ModelAndView();
+
+		// get the data
+		// this goes in the stats bar at the top of every page
+		int gamesPlayed = shotDAO.getNumberOfGames();
+		double savePercentage = shotDAO.getSavePercentage();
+		double gaa = shotDAO.getGoalsAgainstAverage();
+		int sog = shotDAO.getNumberOfShots();
+		int saves = shotDAO.getNumberOfSaves();
+		int goals = shotDAO.getNumberOfGoals();
+
+		mv.addObject("totalGamesPlayed", gamesPlayed);
+		mv.addObject("savePercentage", savePercentage);
+		mv.addObject("goalsAgainstAverage", gaa);
+		mv.addObject("totalShotsOnGoal", sog);
+		mv.addObject("totalSaves", saves);
+		mv.addObject("totalGoals", goals);
+		mv.setViewName("add");
+		return mv;
+	}
+
 }

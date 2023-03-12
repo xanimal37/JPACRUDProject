@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,32 +16,39 @@
 <body>
 <h1>goalie tender</h1>
 <h2>update a shot</h2>
+<%@ include file = "stats.jsp" %>
+<!--   ********************** -->
+<h2>options</h2>
+<ul id="menu">
+	<li><a href="index.do">main page</a></li>
+	<li><a href="addShot.do">Add a Shot</a></li>
+</ul>
 
-
-<form action = "update.do" method = "POST">
-	<label for="gameId">game (ID)</label><br>
-  	<input type="text" id="gameId" name="gameId" value="${shot.gameId}"><br>
+<form action = "update.do?id=${shot.shotId}" method = "POST">
+	<h3>shot #${shot.shotId}</h3>
+	<label for="gameId">game (${shot.gameId})</label>
+  	<input type="text" id="gameId" name="gameId" value=""><br>
     
-	<label for="goal">goal (y/n)</label>
+	<label for="goal">goal (${shot.goal})</label>
     <input type="checkbox" id="goal" name="goal" value="true"><br>
     
-    <label for="screen">screen (y/n)</label>
+    <label for="screen">screen (${shot.screen})</label>
     <input type="checkbox" id="screen" name="screen" value="true"><br>
     
-    <label for="low">low (y/n)</label><br>
+    <label for="low">low (${shot.low})</label>
     <input type="checkbox" id="low" name="low" value="true"><br>
     
-    <label for="rebound">rebound (y/n)</label><br>
+    <label for="rebound">rebound (${shot.rebound})</label>
     <input type="checkbox" id="rebound" name="rebound" value="true"><br>
     
-    <label for="situation">situation:</label>
+    <label for="situation">situation (${shot.situation})</label>
 	<select name="situation" id="situation">
  		<option value="ES">even strength</option>
   		<option value="SH">shorthanded</option>
   		<option value="PP">power play</option>
 	</select><br>
     
-    <label for="zone">zone:</label>
+    <label for="zone">zone (${shot.zone})</label>
 	<select name="zone" id="zone">
  		<option value="1_LEFT">1 (left)</option>
   		<option value="1_RIGHT">1 (right)</option>
@@ -53,7 +61,7 @@
   		<option value="5">5</option>
 	</select><br>
     
-    <label for="saveSelection">save selection:</label>
+    <label for="saveSelection">save selection (${shot.saveSelection})</label>
 	<select name="saveSelection" id="saveSelection">
  		<option value="UP">standing</option>
   		<option value="POSTLEAN">post lean (RVH)</option>
@@ -61,13 +69,14 @@
   		<option value="REACT_BTRFLY">reactive butterfly</option>
 	</select><br>
 	
-	<label for="note">note (i.e. 2 on 1, breakaway):</label>
+	<label for="note">note: ${shot.note }</label><br>
 	<textarea name="note" rows="6" cols="40">
 	</textarea>
 		
-   	<input type = "submit" value = "Submit" />
+   	<input type = "submit" name="submit" value = "submit" />
+   	<input type="submit" name="delete" value = "delete"/>
 
-
+<p>${message}</p>
 
 </form>
 </body>

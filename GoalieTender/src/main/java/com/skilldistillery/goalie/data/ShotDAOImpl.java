@@ -19,9 +19,9 @@ public class ShotDAOImpl implements ShotDAO {
 
 	@Override
 	public Shot getShotById(int id) {
-		return em.find(Shot.class, 1);
+		return em.find(Shot.class,id);
 	}
-
+	
 	@Override
 	public List<Shot> getAllShots() {
 		List<Shot> shots = null;
@@ -50,9 +50,16 @@ public class ShotDAOImpl implements ShotDAO {
 
 	@Override
 	@Transactional
-	public boolean delete() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean delete(int shotId) {
+		Shot shot = em.find(Shot.class, shotId);
+		em.remove(shot);
+		shot = em.find(Shot.class, shotId);
+		if(shot==null) {	
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	
 	//CALCULATION METHODS

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +16,13 @@
 <body>
 <h1>goalie tender</h1>
 <h2>add a shot</h2>
+<%@ include file = "stats.jsp" %>
+<!--   ********************** -->
+<h2>options</h2>
+<ul id="menu">
+	<li><a href="index.do">main page</a></li>
+	<li><a href="addShot.do">Add a Shot</a></li>
+</ul>
 <form action = "addShot.do" method = "POST">
 	<label for="gameId">game (ID)</label><br>
   	<input type="text" id="gameId" name="gameId"><br>

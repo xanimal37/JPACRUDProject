@@ -14,7 +14,7 @@ public interface ShotDAO {
 	
 	Shot update(int id, Shot shot);
 	
-	boolean delete();
+	boolean delete(int id);
 	
 	// ******************* stat methods
 	
