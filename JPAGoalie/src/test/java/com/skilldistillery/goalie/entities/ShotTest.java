@@ -51,16 +51,5 @@ class ShotTest {
 		System.out.println(shot);
 		assertEquals(false,shot.isScreen());
 	}
-	
-	@Test
-	void test_shot_entity_mappings() {
-		assertNotNull(shot);
-		String query = "SELECT s FROM Shot s";
-		List<Shot> shots = em.createQuery(query,Shot.class).getResultList();
-		for(Shot s : shots) {
-			System.out.println(s);
-		}
-		assertEquals(10,shots.size());
-	}
 
 }

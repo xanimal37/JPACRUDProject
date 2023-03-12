@@ -26,7 +26,17 @@ public class Shot {
 	private String note;
 	private String situation;
 	private boolean rebound;
+	@Column(name="game_id")
+	private int gameId;
 	
+	public int getGameId() {
+		return gameId;
+	}
+
+	public void setGameId(int gameId) {
+		this.gameId = gameId;
+	}
+
 	public int getShotId() {
 		return shotId;
 	}

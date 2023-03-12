@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
@@ -105,11 +106,22 @@ public class ShotDAOImpl implements ShotDAO {
 	
 	//calculate goals against average (avg goals per game)
 	public double getGoalsAgainstAverage() {
-		return 0.0;
+		double goals = (double)getNumberOfGoals();
+		double gaa = goals/getNumberOfGames();
+		return gaa;
 	}
 	
 	//calculate number of games
+	//is there a better way to do this??? can do a regulgar query with
+	//count distinct?
 	public int getNumberOfGames() {
-		return 1;
+		List<Shot> shots = getAllShots();
+		int gameCount = 0;
+		for(Shot s: shots) {
+			if(s.getGameId()>gameCount) {
+				gameCount++;
+			}
+		}
+		return gameCount;
 	}
 }

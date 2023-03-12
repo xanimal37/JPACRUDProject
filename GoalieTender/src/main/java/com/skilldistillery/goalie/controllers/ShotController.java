@@ -38,4 +38,5 @@ public class ShotController {
 		mv.setViewName("index");
 		return mv;
 	}
+
 }
