@@ -12,7 +12,7 @@ public interface ShotDAO {
 	
 	Shot create(Shot shot);
 	
-	Shot update(int id, Shot shot);
+	Shot update(int id, int gameId, boolean goal, boolean low, boolean rebound, boolean screen, String situation, String note, String saveSelection, String zone);
 	
 	boolean delete(int id);
 	

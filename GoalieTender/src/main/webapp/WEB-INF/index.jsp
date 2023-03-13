@@ -11,6 +11,7 @@
 <!-- CSS -->
 <link rel="stylesheet" href="/css/main.css">
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>goalie tender</title>
 </head>
 <body>
@@ -24,6 +25,8 @@
 </ul>
 <!-- display list of filterable shots -->
 <h2>shots</h2>
+
+<div id="shotTable">
 <p>select a shot ID to update or delete it</p>
 <table>
 <tr><th>game</th><th>shot ID</th><th>goal</th><th>screen</th><th>low</th><th>zone</th><th>situation</th><th>save selection</th><th>rebound</th><th>note</th></tr>
@@ -31,5 +34,6 @@
 	<tr><td>${shot.gameId}</td><td><a href="update.do?shotId=${shot.shotId}">${shot.shotId}</a></td><td>${shot.goal}</td><td>${shot.screen}</td><td>${shot.low}</td><td>${shot.zone}</td><td>${shot.situation}</td><td>${shot.saveSelection}</td><td>${shot.rebound}</td><td>${shot.note}</td></tr>
 </c:forEach>
 </table>
+</div>
 </body>
 </html>

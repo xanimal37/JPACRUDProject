@@ -11,6 +11,7 @@
 <!-- CSS -->
 <link rel="stylesheet" href="/css/main.css">
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>goalie tender - add a shot</title>
 </head>
 <body>
@@ -24,7 +25,7 @@
 	<li><a href="addShot.do">Add a Shot</a></li>
 </ul>
 <form action = "addShot.do" method = "POST">
-	<label for="gameId">game (ID)</label><br>
+	<label for="gameId">game (ID)</label>
   	<input type="text" id="gameId" name="gameId"><br>
     
 	<label for="goal">goal (y/n)</label>

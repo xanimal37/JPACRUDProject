@@ -101,8 +101,36 @@ public class ShotController {
 		mv.addObject("message", result);
 		return mv;
 	}
-	
+
 	// update a shot
+	@RequestMapping(path = "update.do", method = RequestMethod.POST, params = "update")
+	public ModelAndView updateShot(
+			@RequestParam("id") int id, 
+			@RequestParam("gameId") int gameId,
+			@RequestParam(name="goal",defaultValue = "false") boolean goal, 
+			@RequestParam(name="low",defaultValue = "false") boolean low,
+			@RequestParam(name="rebound",defaultValue = "false") boolean rebound, 
+			@RequestParam(name="screen",defaultValue="false") boolean screen,
+			@RequestParam("situation") String situation, 
+			@RequestParam("note") String note,
+			@RequestParam("saveSelection") String saveSelection, 
+			@RequestParam("zone") String zone) {
+
+		
+		Shot updatedShot = shotDAO.update(id, gameId, goal, low, rebound, screen, situation, note, saveSelection,zone);
+
+		// do, result
+		ModelAndView mv = new ModelAndView();
+		String result = null;
+
+		if (updatedShot != null) {
+			result = "shot updated";
+		} else {
+			result = "shot update failed";
+		}
+		mv.addObject("message", result);
+		return mv;
+	}
 
 	// page directs ******************************************
 	@GetMapping(path = "addShot.do")

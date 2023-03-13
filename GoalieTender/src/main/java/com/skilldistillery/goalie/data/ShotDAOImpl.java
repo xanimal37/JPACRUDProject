@@ -41,11 +41,21 @@ public class ShotDAOImpl implements ShotDAO {
 
 	@Override
 	@Transactional
-	public Shot update(int id, Shot shot) {
+	public Shot update(int id, int gameId, boolean goal, boolean low, boolean rebound, boolean screen, String situation, String note, String saveSelection, String zone) {
 		// TODO Auto-generated method stub
 		//shot needs to be a managed object
-		shot = em.find(Shot.class, id);
-		return null;
+		Shot shot = em.find(Shot.class, id);
+		shot.setGameId(gameId);
+		shot.setGoal(goal);
+		shot.setLow(low);
+		shot.setRebound(rebound);
+		shot.setScreen(screen);
+		shot.setSituation(situation);
+		shot.setNote(note);
+		shot.setSaveSelection(saveSelection);
+		shot.setZone(zone);
+		em.persist(shot);
+		return shot;
 	}
 
 	@Override

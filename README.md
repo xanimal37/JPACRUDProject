@@ -16,8 +16,11 @@ This project is called "Goalie Tender". It stores data about shots on a goalie i
 - error messages are very helpful once you know how to format and find them. !!!
 - checkboxes pass value "true" and will be converted to boolean (yay)
 - command objects are great (didn't use them last time)
+- PRECHECK checkbox and radio buttons using JSP conditionals and parameters
+- to be doubly safe, set default values for checkbox parameters, or they won't get passed if unchecked
 
 # To Do
 - Would be more useful with more tables.
 - Better visual design.
 - could be all on one page, like an app but wanted to work on loading jsp
+- should haved used BOOLEAN? for not null things? But command object seems to work and data is checked on front end so it is working. Maybe should still switch?
