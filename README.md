@@ -27,3 +27,5 @@ This project is called "Goalie Tender". It stores data about shots on a goalie i
 - would be nice to have a more visual representation of the data
 - could not figure out how to COUNT, COUNT DISTINCT (to get number of games)
 - should have included some front-end filtering using Javascript to make the data more readable
+- need redirect after adding a shot so that the screen doesn't go blank. should direct to home
+- include option for storing images
