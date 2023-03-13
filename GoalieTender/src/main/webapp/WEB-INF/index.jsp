@@ -28,8 +28,12 @@
 <!-- display list of filterable shots -->
 <h2>shots</h2>
 
-<div id="shotTable">
 <p>select a shot ID to update or delete it</p>
+<div id="shotTable">
+<div id="diagram">
+<img src="img/zones-01.png">
+</div>
+<div>
 <table>
 <tr><th>game</th><th>shot ID</th><th>goal</th><th>screen</th><th>low</th><th>zone</th><th>situation</th><th>save selection</th><th>rebound</th><th>note</th></tr>
 <c:forEach var="shot" items="${shots}">
@@ -45,6 +49,7 @@
 	<td>${shot.note}</td></tr>
 </c:forEach>
 </table>
+</div>
 </div>
 </body>
 </html>
