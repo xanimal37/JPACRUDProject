@@ -25,3 +25,4 @@ This project is called "Goalie Tender". It stores data about shots on a goalie i
 - could be all on one page, like an app but wanted to work on loading jsp
 - should haved used BOOLEAN? for not null things? But command object seems to work and data is checked on front end so it is working. Maybe should still switch?
 - would be nice to have a more visual reporesentation of the data
+- could not figure out how to COUNT, COUNT DISTINCT (to get number of games)

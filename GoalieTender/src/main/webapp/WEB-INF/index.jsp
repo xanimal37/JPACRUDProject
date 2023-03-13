@@ -33,7 +33,16 @@
 <table>
 <tr><th>game</th><th>shot ID</th><th>goal</th><th>screen</th><th>low</th><th>zone</th><th>situation</th><th>save selection</th><th>rebound</th><th>note</th></tr>
 <c:forEach var="shot" items="${shots}">
-	<tr><td>${shot.gameId}</td><td><a href="update.do?shotId=${shot.shotId}">${shot.shotId}</a></td><td>${shot.goal}</td><td>${shot.screen}</td><td>${shot.low}</td><td>${shot.zone}</td><td>${shot.situation}</td><td>${shot.saveSelection}</td><td>${shot.rebound}</td><td>${shot.note}</td></tr>
+	<tr><td>${shot.gameId}</td>
+	<td><a href="update.do?shotId=${shot.shotId}">${shot.shotId}</a></td>
+	<td><c:choose><c:when test="${shot.goal=='true'}">X</c:when></c:choose></td>
+	<td><c:choose><c:when test="${shot.screen=='true'}">X</c:when></c:choose></td>
+	<td><c:choose><c:when test="${shot.low=='true'}">LOW</c:when><c:when test="${shot.low=='false'}">HIGH</c:when></c:choose></td>
+	<td>${shot.zone}</td>
+	<td>${shot.situation}</td>
+	<td>${shot.saveSelection}</td>
+	<td><c:choose><c:when test="${shot.rebound=='true'}">X</c:when></c:choose></td>
+	<td>${shot.note}</td></tr>
 </c:forEach>
 </table>
 </div>
