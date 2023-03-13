@@ -38,16 +38,17 @@ h1,h2,h3,h4,h5,h6 {
 	display:flex;
 	flex-direction:row;
 	justify-content:center;
-	padding:1em;
+	padding:.2em;
 	background-color:rgba(255,0,0,.74);
 	margin-bottom:1em;
 	margin-top:.2em;
 }
 
 #menu li {
-	padding-left:1em;
-	padding-right:1em;
+	padding:.4em;
 	font-weight:bold;
+	background-color:#ffffff;
+	margin:.4em;
 }
 
 h1 {
@@ -61,12 +62,17 @@ a {
 #shotTable {
 	display:flex;
 	flex-direction:column;
-	justify-content:center;
-	padding:2em;
+	align-items:center;
+	padding:1em;
 }
 
 #shotTable p {
 	text-align:center;
+}
+
+#shotTable a {
+	font-weight:bold;
+	color:#66e0ff;
 }
 
 table {
@@ -81,5 +87,12 @@ table, th, td {
 th, td {
 	padding:.25em;
 	text-align:center;
+}
+
+.form {
+	max-width:600px;
+	margin:0 auto;
+	background-color:rgba(0,51,153,.5);
+	padding:1em;
 }
 	

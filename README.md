@@ -1,7 +1,7 @@
 # JPACRUDProject
 
 # Description
-This project is called "Goalie Tender". It stores data about shots on a goalie in order to extract information about how the goalie is doing and what things they might need to work on. Are they having trouble with a particular side or shot angle? Maybe they aren't making the right save selection or, even if making the right decision, are getting scored on more often when making a particular one. This could be considered a training aid. Right now the only table in the database is shots, but each shot can be linked to a game, which could be linked to a player and the options expanded from there.
+This project is called "Goalie Tender". It stores data about shots on a goalie in order to extract information about how the goalie is doing and what things they might need to work on. Are they having trouble with a particular side or shot angle? Maybe they aren't making the right save selection or, even if making the right decision, are getting scored on more often when making a particular one. This could be considered a training aid. Right now the only table in the database is shots, but each shot can be linked to a game, which could be linked to a player and the data expanded from there.
 
 # Technologies
 - Java/Eclipse
@@ -24,3 +24,4 @@ This project is called "Goalie Tender". It stores data about shots on a goalie i
 - Better visual design.
 - could be all on one page, like an app but wanted to work on loading jsp
 - should haved used BOOLEAN? for not null things? But command object seems to work and data is checked on front end so it is working. Maybe should still switch?
+- would be nice to have a more visual reporesentation of the data
